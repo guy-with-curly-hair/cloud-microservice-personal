@@ -1,23 +1,26 @@
 version: '2.1'
 services :
   eureka-server :
-    image : service-registry:0.0.1-SNAPSHOT
+    image : vt-service-registry:0.0.1-SNAPSHOT
     ports :
       - "8761:8761"
+    hostname : eureka-server
     networks :
        backend :
           aliases:
              - "eurekaserver"
 
   config-server :
-    image : cloud-config
+    image : vt-cloud-config:0.0.1-SNAPSHOT
     ports:
       - "9296:9296"
+    links :
+      - eureka-server
+
     networks:
       backend:
         aliases:
           - "configserver"
-
 
 networks:
   backend:

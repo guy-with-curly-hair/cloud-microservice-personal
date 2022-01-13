@@ -10,3 +10,13 @@ spring :
         git :
           uri : https://github.com/guy-with-curly-hair/config-server
           clone-on-start : true
+
+eureka :
+  instance :
+    hostname : localhost
+  client :
+    register-with-eureka : true
+    fetch-registry : true
+    service-url :
+      defaultZone : http://${eureka.instance.hostname}:8761/eureka/
+
