@@ -2,4 +2,13 @@ spring :
   cloud :
     config :
       enabled : true
-      uri : http://localhost:9296
+      uri : http://config-server:9296
+
+eureka :
+  instance :
+    hostname : eureka-server
+  client :
+    register-with-eureka : true
+    fetch-registry : true
+    service-url :
+      defaultZone : http://${eureka.instance.hostname}:8761/eureka/

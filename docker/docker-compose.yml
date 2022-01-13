@@ -22,6 +22,21 @@ services :
         aliases:
           - "configserver"
 
+  department-service :
+    image : vt-department-service:0.0.1-SNAPSHOT
+    ports :
+      - "9023:9023"
+    hostname : department-service
+    depends_on :
+      config-server :
+        condition: service_started
+    networks:
+       backend:
+            aliases:
+               - "departmentserivce"
+
+
+
 networks:
   backend:
     driver: bridge
