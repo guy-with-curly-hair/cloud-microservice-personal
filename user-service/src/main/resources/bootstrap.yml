@@ -8,14 +8,14 @@ spring :
       enabled : true
       uri : http://config-server:9296
 
-eureka :
-  instance :
-    hostname : eureka-server
-  client :
-    register-with-eureka : true
-    fetch-registry : true
-    service-url :
-      defaultZone : http://${eureka.instance.hostname}:8761/eureka/
+#eureka :
+#  instance :
+#    hostname : eureka-server
+#  client :
+#    register-with-eureka : true
+#    fetch-registry : true
+#    service-url :
+#      defaultZone : http://${eureka.instance.hostname}:8761/eureka/
 
 #Enable all Spring Boot Actuator endpoints.
 management:
