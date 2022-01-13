@@ -1,4 +1,8 @@
+server :
+  port : 9023
 spring :
+  application:
+    name: DEPARTMENT-SERVICE
   cloud :
     config :
       enabled : true

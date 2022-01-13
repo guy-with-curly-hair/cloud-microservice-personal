@@ -1,4 +1,8 @@
+server :
+  port : 9024
 spring :
+  application:
+    name: USER-SERVICE
   cloud :
     config :
       enabled : true
