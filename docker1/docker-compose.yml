@@ -1,10 +1,12 @@
-version: '2.1'
+version: '3'
 services :
   eureka-server :
     image : vt-service-registry:0.0.1-SNAPSHOT
     ports :
       - "8761:8761"
     hostname : eureka-server
+    links:
+      - config
     networks :
        backend :
           aliases:
@@ -14,8 +16,6 @@ services :
     image : vt-cloud-config:0.0.1-SNAPSHOT
     ports:
       - "9296:9296"
-    links :
-      - eureka-server
     networks:
       backend:
         aliases:
@@ -32,28 +32,6 @@ services :
        backend:
             aliases:
                - "departmentserivce"
-  user-service:
-    image: vt-user-service:0.0.1-SNAPSHOT
-    ports:
-      - "9024:9024"
-    hostname: user-service
-    links :
-      - config-server
-    networks:
-      backend:
-        aliases:
-          - "userserivce"
-  cloud-gateway:
-    image: vt-cloud-gateway:0.0.1-SNAPSHOT
-    ports:
-      - "9191:9191"
-    hostname: cloud-gateway
-    links:
-      - eureka-server
-    networks:
-      backend:
-        aliases:
-          - "cloudgatewayserivce"
 
 networks:
   backend:
