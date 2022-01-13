@@ -19,6 +19,10 @@
 		<docker.image.prefix>vt-service-registry</docker.image.prefix>
 	</properties>
 	<dependencies>
+			<dependency>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-actuator</artifactId>
+    		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -64,7 +68,6 @@
 						<phase>install</phase>
 						<goals>
 							<goal>build</goal>
-							<goal>push</goal>
 						</goals>
 					</execution>
 				</executions>
