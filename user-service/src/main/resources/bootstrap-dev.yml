@@ -1,0 +1,17 @@
+
+server :
+  port : 9024
+spring :
+  application:
+    name: USER-SERVICE
+  cloud :
+    config :
+      enabled : true
+      uri : http://localhost:9296
+
+#Enable all Spring Boot Actuator endpoints.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

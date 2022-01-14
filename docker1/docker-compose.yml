@@ -5,8 +5,6 @@ services :
     ports :
       - "8761:8761"
     hostname : eureka-server
-    links:
-      - config
     networks :
        backend :
           aliases:
@@ -21,17 +19,19 @@ services :
         aliases:
           - "configserver"
 
-  department-service :
-    image : vt-department-service:0.0.1-SNAPSHOT
-    ports :
-      - "9023:9023"
-    hostname : department-service
-    links :
-      - config-server
-    networks:
-       backend:
-            aliases:
-               - "departmentserivce"
+#run via manually since there is race condition & so its not getting environment variable
+
+#  department-service :
+#    image : vt-department-service:0.0.1-SNAPSHOT
+#    ports :
+#      - "9023:9023"
+#    hostname : department-service
+#    links :
+#      - config-server
+#    networks:
+#       backend:
+#            aliases:
+#               - "departmentserivce"
 
 networks:
   backend:
