@@ -1,3 +1,9 @@
+spring :
+  application : eureka-server
+  cloud :
+    loadbalancer :
+      ribbon :
+        enabled : false
 server :
   port : 8762
   waitTimeInMsWhenSyncEmpty: 0
